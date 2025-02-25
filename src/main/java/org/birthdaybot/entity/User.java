@@ -22,7 +22,9 @@ public class User {
     private String username;
     private Long telegramId;
     private LocalDate birthDate;
+    private String phoneNumber;
 
-    @ManyToMany(mappedBy = "users")
-    private Set<Group> groups;
+    @ManyToOne
+    @JoinColumn(name = "group_id")
+    private Group group;
 }

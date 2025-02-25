@@ -21,6 +21,6 @@ public class BirthdayMessage {
     private String message;
 
     @ManyToOne
-    @JoinColumn(name = "group_id")
+    @JoinColumn(name = "group_id", nullable = false)
     private Group group;
 }

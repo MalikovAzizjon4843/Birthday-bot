@@ -16,9 +16,9 @@ public class GroupService {
     @Autowired
     private GroupRepository groupRepository;
 
-    public Optional<Group> findById(Long groupId) {
-        return groupRepository.findById(groupId);
-    }
+//    public Optional<Group> findById(Long groupId) {
+//        return groupRepository.findById(groupId);
+//    }
 
     public Group saveGroup(Group group) {
         return groupRepository.save(group);
@@ -26,6 +26,10 @@ public class GroupService {
 
     public List<Group> findAllGroups() {
         return groupRepository.findAll();
+    }
+
+    public Optional<Group> findByTelegramGroupId(Long telegramGroupId) {
+        return groupRepository.findByTelegramGroupId(telegramGroupId);
     }
 
     public void deleteGroup(Long groupId) {

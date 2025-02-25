@@ -2,6 +2,7 @@ package org.birthdaybot.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -22,14 +23,6 @@ public class Group {
     private String name;
     private Long telegramGroupId;
 
-    @ManyToMany
-    @JoinTable(
-            name = "user_group",
-            joinColumns = @JoinColumn(name = "group_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
+    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<User> users;
-
-    @OneToMany(mappedBy = "group")
-    private Set<BirthdayMessage> birthdayMessages;
 }

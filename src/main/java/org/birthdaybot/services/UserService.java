@@ -39,6 +39,15 @@ public class UserService {
         });
     }
 
+    @Transactional
+    public void updateUserName(Long telegramId, String newName) {
+        Optional<User> userOptional = userRepository.findByTelegramId(telegramId);
+        userOptional.ifPresent(user -> {
+            user.setUsername(newName);
+            userRepository.save(user);
+        });
+    }
+
     public void deleteUser(Long telegramId) {
         userRepository.findByTelegramId(telegramId)
                 .ifPresent(userRepository::delete);

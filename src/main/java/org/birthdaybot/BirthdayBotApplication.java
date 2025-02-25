@@ -8,6 +8,7 @@ public class BirthdayBotApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(BirthdayBotApplication.class, args);
+        System.out.println("Bot ishladi!");
     }
 
 }
